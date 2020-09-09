@@ -1,7 +1,22 @@
 import React, { useState } from "react";
+import styled from 'styled-components';
 
 import { OnlyNumbersKeyDown } from './../../helpers/helpers';
 import { checkLength } from './../../helpers/helpers';
+
+
+const StyledInput = styled.input`
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 14px;
+    opacity: .7;
+    color: #86939e;
+    width: 100%;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    border: 2px solid #e1e8ee;
+    border-radius: 6px;
+`
 
 type Props = {
     updateFieldInfo: (fieldInfo: React.ChangeEvent<HTMLInputElement>) => void
@@ -27,7 +42,7 @@ const CardNumber: React.FC<Props> = ({ updateFieldInfo }) => {
                 :
                     null
             }        
-            <input type="text"
+            <StyledInput type="text"
                 className="card-number"
                 placeholder="Card Number"
                 onChange={handleChange}

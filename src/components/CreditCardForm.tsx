@@ -10,6 +10,8 @@ import CardCcv from './FormFields/CardCcv';
 import StyledForm from './../styles/StyledForm';
 import StyledFormHeader from './../styles/StyledFormHeader';
 import StyledFormBody from './../styles/StyledFormBody';
+import StyledTitle from './../styles/StyledTitle';
+import StyledButton from './../styles/StyledButton';
 
 type FormEvent = React.ChangeEvent<HTMLSelectElement> | React.ChangeEvent<HTMLInputElement>;
 
@@ -36,7 +38,7 @@ const CreditCardForm: React.FC<{}> = () => {
         <>
             <StyledForm onSubmit={handleSubmit}>
                 <StyledFormHeader>
-                    <h4>Credit card details</h4>
+                    <StyledTitle>Credit card details</StyledTitle>
                 </StyledFormHeader>
                 <StyledFormBody>
                     <CardNumber updateFieldInfo={updateFieldInfo} />
@@ -45,7 +47,7 @@ const CreditCardForm: React.FC<{}> = () => {
                         <CardYear updateFieldInfo={updateFieldInfo}/>
                     </div>
                     <CardCcv updateFieldInfo={updateFieldInfo}/>
-                    <button type="submit">Pay</button>
+                    <StyledButton type="submit">Pay</StyledButton>
                 </StyledFormBody>
             </StyledForm> 
         </>

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const StyledForm = styled.form`
     width: 360px;
-    height: 300px;
+    height: auto;
     margin: 60px auto 0;
     border: 1px solid #ddd;
     border-radius: 6px;
