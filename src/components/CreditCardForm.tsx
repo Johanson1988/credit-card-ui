@@ -31,12 +31,14 @@ const CreditCardForm: React.FC<{}> = () => {
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        alert("Information submitted");        
+        const { number, month, year, ccv } = inputCardDetails;
+        if (number && month && year && ccv ) alert("Information correctly submitted");    
+        else alert("Please, review all fields")
     } 
     
     return(
     <>
-        <form className="credit-card">
+        <form className="credit-card" onSubmit={handleSubmit}>
             <div className="form-header">
                 <h4 className="title">Credit card detail</h4>
             </div>
@@ -49,13 +51,11 @@ const CreditCardForm: React.FC<{}> = () => {
                 </div>
                 <CardCcv updateFieldInfo={updateFieldInfo}/>
 
-        <button type="submit" className="proceed-btn">Proceed</button>
-        <button type="submit" className="paypal-btn">Pay With</button>
-    </div>
+                <button type="submit" className="proceed-btn">Pay</button>
+            </div>
     </form> 
     </>
     )
 }
-
 
 export default CreditCardForm;

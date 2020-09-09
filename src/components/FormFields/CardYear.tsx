@@ -5,8 +5,8 @@ type Props = {
 }
 
 const CardYear: React.FC<Props> = ({ updateFieldInfo }) => 
-    <div className="year">
-        <select name="Year" onChange={updateFieldInfo}>
+    <div className="Year">
+        <select name="year" onChange={updateFieldInfo}>
             <option value="2016">2016</option>
             <option value="2017">2017</option>
             <option value="2018">2018</option>
