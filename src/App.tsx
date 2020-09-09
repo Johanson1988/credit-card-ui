@@ -1,9 +1,13 @@
 import React from 'react';
 
-const App = () => {
+//Components
+import CreditCardForm from './components/CreditCardForm';
+
+const App: React.FC<{}> = () => {
+
   return (
     <div className="App">
-      <h1>Hola Mundo</h1>
+      <CreditCardForm />
     </div>
   );
 }
