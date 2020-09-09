@@ -1,19 +1,15 @@
 import React, { useState } from "react";
-//import styled from "styled-components";
 
-/*const StyledFooter = styled.footer`
-    width: 80%;
-    background-color: ${({ theme: { colors } }) => colors.main};
-    color: ${({ theme: { colors } }) => colors.secondary};
-    margin: 1em auto;
-    text-align: center;
-`*/
-
-//import modules
+/** Components */
 import CardNumber from './FormFields/CardNumber';
 import CardMonth from './FormFields/CardMonth';
 import CardYear from './FormFields/CardYear';
 import CardCcv from './FormFields/CardCcv';
+
+/** Styled Components */
+import StyledForm from './../styles/StyledForm';
+import StyledFormHeader from './../styles/StyledFormHeader';
+import StyledFormBody from './../styles/StyledFormBody';
 
 type FormEvent = React.ChangeEvent<HTMLSelectElement> | React.ChangeEvent<HTMLInputElement>;
 
@@ -37,24 +33,22 @@ const CreditCardForm: React.FC<{}> = () => {
     } 
     
     return(
-    <>
-        <form className="credit-card" onSubmit={handleSubmit}>
-            <div className="form-header">
-                <h4 className="title">Credit card detail</h4>
-            </div>
-    
-            <div className="form-body">
-                <CardNumber updateFieldInfo={updateFieldInfo} />
-                <div className="date-field">
-                    <CardMonth updateFieldInfo={updateFieldInfo} />
-                    <CardYear updateFieldInfo={updateFieldInfo}/>
-                </div>
-                <CardCcv updateFieldInfo={updateFieldInfo}/>
-
-                <button type="submit" className="proceed-btn">Pay</button>
-            </div>
-    </form> 
-    </>
+        <>
+            <StyledForm onSubmit={handleSubmit}>
+                <StyledFormHeader>
+                    <h4>Credit card details</h4>
+                </StyledFormHeader>
+                <StyledFormBody>
+                    <CardNumber updateFieldInfo={updateFieldInfo} />
+                    <div>
+                        <CardMonth updateFieldInfo={updateFieldInfo} />
+                        <CardYear updateFieldInfo={updateFieldInfo}/>
+                    </div>
+                    <CardCcv updateFieldInfo={updateFieldInfo}/>
+                    <button type="submit">Pay</button>
+                </StyledFormBody>
+            </StyledForm> 
+        </>
     )
 }
 
