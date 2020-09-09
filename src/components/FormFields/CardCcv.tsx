@@ -1,9 +1,13 @@
 import React from "react";
 
-const CardCcv: React.FC<{}> = () => 
+type Props = {
+    updateFieldInfo: (fieldInfo: React.ChangeEvent<HTMLInputElement>) => void
+}
+
+const CardCcv: React.FC<Props> = ({ updateFieldInfo }) => 
     <div className="card-verification">
         <div className="cvv-input">
-            <input type="text" placeholder="CVV" />
+            <input type="text" placeholder="CVV" onChange={updateFieldInfo} name="ccv" />
         </div>
         <div className="cvv-details">
             <p>3 or 4 digits usually found on the signature strip</p>

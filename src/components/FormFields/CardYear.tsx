@@ -1,8 +1,12 @@
 import React from "react";
 
-const CardYear: React.FC<{}> = () => 
+type Props = {
+    updateFieldInfo: (fieldInfo: React.ChangeEvent<HTMLSelectElement>) => void
+}
+
+const CardYear: React.FC<Props> = ({ updateFieldInfo }) => 
     <div className="year">
-        <select name="Year">
+        <select name="Year" onChange={updateFieldInfo}>
             <option value="2016">2016</option>
             <option value="2017">2017</option>
             <option value="2018">2018</option>

@@ -22,6 +22,8 @@ export type CardDetails = {
     ccv?: string,
 }
 
+type FormEvent = React.ChangeEvent<HTMLSelectElement> | React.ChangeEvent<HTMLInputElement>;
+
 const CreditCardForm: React.FC<{}> = () => {
 
     const [inputCardDetails, setInputCardDetails] = useState({
@@ -31,13 +33,10 @@ const CreditCardForm: React.FC<{}> = () => {
         ccv: ""
     });
 
-    const updateFieldInfo = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const updatedCardDetails = {...inputCardDetails, [event.target.name]: event.target.value };
-        setInputCardDetails(updatedCardDetails);
-    }
+    const updateFieldInfo = (event: FormEvent) =>
+        setInputCardDetails({...inputCardDetails, [event.target.name]: event.target.value });
 
     return(
-
     <>
         <form className="credit-card">
             <div className="form-header">
@@ -47,10 +46,10 @@ const CreditCardForm: React.FC<{}> = () => {
             <div className="form-body">
                 <CardNumber updateFieldInfo={updateFieldInfo} />
                 <div className="date-field">
-                    <CardMonth />
-                    <CardYear />
+                    <CardMonth updateFieldInfo={updateFieldInfo} />
+                    <CardYear updateFieldInfo={updateFieldInfo}/>
                 </div>
-                <CardCcv />
+                <CardCcv updateFieldInfo={updateFieldInfo}/>
 
         <button type="submit" className="proceed-btn">Proceed</button>
         <button type="submit" className="paypal-btn">Pay With</button>
