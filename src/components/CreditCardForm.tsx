@@ -15,13 +15,6 @@ import CardMonth from './FormFields/CardMonth';
 import CardYear from './FormFields/CardYear';
 import CardCcv from './FormFields/CardCcv';
 
-export type CardDetails = {
-    number?: string,
-    month?: string,
-    year?: string,
-    ccv?: string,
-}
-
 type FormEvent = React.ChangeEvent<HTMLSelectElement> | React.ChangeEvent<HTMLInputElement>;
 
 const CreditCardForm: React.FC<{}> = () => {
@@ -36,6 +29,11 @@ const CreditCardForm: React.FC<{}> = () => {
     const updateFieldInfo = (event: FormEvent) =>
         setInputCardDetails({...inputCardDetails, [event.target.name]: event.target.value });
 
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        alert("Information submitted");        
+    } 
+    
     return(
     <>
         <form className="credit-card">
