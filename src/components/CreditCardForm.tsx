@@ -21,8 +21,8 @@ const CreditCardForm: React.FC<{}> = () => {
 
     const [inputCardDetails, setInputCardDetails] = useState({
         number: "",
-        month: "",
-        year: "",
+        month: "January",
+        year: "2020",
         ccv: ""
     });
 

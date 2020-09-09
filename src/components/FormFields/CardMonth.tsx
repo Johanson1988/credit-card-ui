@@ -7,7 +7,7 @@ type Props = {
 const CardMonth: React.FC<Props> = ({ updateFieldInfo }) => 
     <div className="month-class">
         <select name="month" onChange={updateFieldInfo} >
-            <option value="january">January</option>
+            <option value="january" selected>January</option>
             <option value="february">February</option>
             <option value="march">March</option>
             <option value="april">April</option>
